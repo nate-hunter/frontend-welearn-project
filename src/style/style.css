@@ -1,0 +1,5 @@
+.NavBar-logo {
+  margin: left;
+  height: 5vmin;
+  pointer-events: none;
+}

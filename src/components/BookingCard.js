@@ -9,8 +9,6 @@ class BookingCard extends React.Component {
   }
 
   render() {
-    // console.log('bookingcard',this.props)
-
     const { booking, selectBooking, selected } = this.props
 
     return(
@@ -20,13 +18,10 @@ class BookingCard extends React.Component {
         <h3>Location: {booking.location.address}</h3>
         <h3>Date: {booking.date} || Time: {booking.time}</h3>
 
-        <button onClick={() => selectBooking(booking)}>View Booking</button>
-        <br/><br/>
-        <button onClick={this.handleClick}>Show Booking Details</button>
+        <button onClick={() => selectBooking(booking)}>View Booking Details</button>
 
         <br/>
         <p>{selected ? "selected" : "not selected"}</p>
-        <p>{selected ? booking.session_goal : null}</p>
         <br/>
       </div>
     );

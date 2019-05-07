@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { userLoginFetch } from '../actions/userActions';
+import { Button, Checkbox, Form, Grid, Select } from 'semantic-ui-react';
 
 class Login extends React.Component {
   state = {
@@ -20,18 +21,30 @@ class Login extends React.Component {
   };
 
   render() {
+    const styles = {
+      root: {
+        marginTop: '5%'
+      }
+    }
+
     return(
-      <form onSubmit={this.handleSubmit}>
-        <h1>Login</h1>
+      <Grid centered style={styles.root}>
+        <Grid.Column width={6}>
+          <Form onSubmit={this.handleSubmit}>
+            <Form.Field>
+              <label>Username</label>
+              <input name='username' placeholder='Username...' value={this.state.username} onChange={this.handleChange} />
+            </Form.Field>
 
-        <label>Username</label>
-        <input name="username" placeholder="Username" value={this.state.username} onChange={this.handleChange}/><br/>
+            <Form.Field>
+              <label>Password</label>
+              <input type="password" name="password" placeholder="Password..." value={this.state.password} onChange={this.handleChange} />
+            </Form.Field>
 
-        <label>Password</label>
-        <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} /><br/>
-
-        <input type="submit" />
-      </form>
+            <Button type="submit" color="yellow">Log In</Button>
+          </Form>
+        </Grid.Column>
+      </Grid>
     );
   };
 };
@@ -41,3 +54,16 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(null, mapDispatchToProps)(Login);
+
+
+// <form onSubmit={this.handleSubmit}>
+//   <h1>Login</h1>
+//
+//   <label>Username</label>
+//   <input name="username" placeholder="Username" value={this.state.username} onChange={this.handleChange}/><br/>
+//
+//   <label>Password</label>
+//   <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} /><br/>
+//
+//   <input type="submit" />
+// </form>

@@ -29,3 +29,13 @@
   align-items: center;
   /* justify-content: center; */
 }
+
+.NavBar-logo {
+  margin: left;
+  height: 5vmin;
+  pointer-events: none;
+}
+
+.profile-icon {
+  height: 2vmin;
+}
