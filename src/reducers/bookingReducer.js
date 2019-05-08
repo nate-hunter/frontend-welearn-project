@@ -14,6 +14,16 @@ const bookingReducer = (state=initialState, action) => {
     case SELECT_BOOKING:
       return {...state, selectedBooking: action.payload}
 
+    case EDIT_BOOKING:
+      const bookingsArray = state.bookings.map(booking => {
+        if (booking.id === action.payload.id) {
+          return {...booking, ...action.payload}
+        } else {
+          return booking
+        }
+      })
+      debugger
+      return {...state, bookings: bookingsArray}
 
     default:
       return state

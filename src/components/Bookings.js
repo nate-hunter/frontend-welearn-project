@@ -17,10 +17,12 @@ class Bookings extends React.Component {
 
     console.log('bookings props', this.props)
     console.log('bookings', bookings)
+    console.log('selected booking blahhh', this.props.selectedBooking)
 
     return(
       <div>
-        <BookingDetails />
+        <br/>
+        {this.props.selectedBooking.id ? <BookingDetails /> : null }
         <h1>Available Sessions</h1>
         {bookingsArray}
       </div>
@@ -29,7 +31,8 @@ class Bookings extends React.Component {
 };
 
 const mapStateToProps = state => ({
-  bookings: state.bookingInfo.bookings
+  bookings: state.bookingInfo.bookings,
+  selectedBooking: state.bookingInfo.selectedBooking
 });
 
 const mapDispatchToProps = { getBookings }

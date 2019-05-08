@@ -18,7 +18,7 @@ class BookingCard extends React.Component {
         <h3>Location: {booking.location.address}</h3>
         <h3>Date: {booking.date} || Time: {booking.time}</h3>
 
-        <button onClick={() => selectBooking(booking)}>View Booking Details</button>
+        <button onClick={() => selectBooking(booking)}>View Session Details</button>
 
         <br/>
         <p>{selected ? "selected" : "not selected"}</p>

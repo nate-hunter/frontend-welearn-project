@@ -5,6 +5,8 @@ class Profile extends React.Component {
     return(
       <div>
         <h1>User Profile</h1>
+
+        <h3>Booked Sessions</h3>
       </div>
     );
   };
