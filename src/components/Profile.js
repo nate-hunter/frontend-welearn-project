@@ -1,15 +1,30 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { Image, Item } from 'semantic-ui-react'
+import { Divider, Header, Icon, Table } from 'semantic-ui-react'
+import UserDetails from './UserDetails'
+import UserBookings from './UserBookings'
 
 class Profile extends React.Component {
   render() {
+    console.log('profile',this.props.currentUser)
+
+    let user = this.props.currentUser || {}
+
     return(
       <div>
-        <h1>User Profile</h1>
+        <h1>{user.username ? user.username.toUpperCase() + "'s" : null} PROFILE</h1>
+        <UserDetails />
 
-        <h3>Booked Sessions</h3>
+        <UserBookings />
+
       </div>
     );
   };
 };
 
-export default Profile;
+const mapStateToProps = state => ({
+  currentUser: state.currentUser.currentUser
+})
+
+export default connect(mapStateToProps)(Profile);
