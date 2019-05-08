@@ -15,15 +15,7 @@ const bookingReducer = (state=initialState, action) => {
       return {...state, selectedBooking: action.payload}
 
     case EDIT_BOOKING:
-      const bookingsArray = state.bookings.map(booking => {
-        if (booking.id === action.payload.id) {
-          return {...booking, ...action.payload}
-        } else {
-          return booking
-        }
-      })
-      debugger
-      return {...state, bookings: bookingsArray}
+      return {...state, selectedBooking: action.payload}
 
     default:
       return state
@@ -31,3 +23,14 @@ const bookingReducer = (state=initialState, action) => {
 }
 
 export default bookingReducer;
+
+
+// case EDIT_BOOKING:
+//   const bookingsArray = state.bookings.map(booking => {
+//     if (booking.id === action.payload.id) {
+//       return {...booking, ...action.payload}
+//     } else {
+//       return booking
+//     }
+//   })
+//   return {...state, bookings: bookingsArray}

@@ -11,7 +11,7 @@ class UserDetails extends React.Component {
       <React.Fragment>
         <Divider horizontal>
           <Header as='h2'>
-            {user.role ? user.role.toUpperCase() : null} INFORMATION
+            { user.role ? user.role.toUpperCase() : null } INFORMATION
           </Header>
         </Divider>
 

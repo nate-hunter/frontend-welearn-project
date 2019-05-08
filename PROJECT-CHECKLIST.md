@@ -4,6 +4,7 @@
 # PAGES:
 
 ## FILTER:
+- filter out unavailable sessions
 // - tutor (subject/specialty)
 - location (neighborhood)
   - need to add neighborhood
@@ -28,6 +29,7 @@
 - *style* booking details
   - table? what can semantic do?
 - convert date/time
+- if booked, button unclickable
 
 # HOME:
 - add copy

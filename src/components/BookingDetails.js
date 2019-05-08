@@ -87,7 +87,7 @@ class BookingDetails extends React.Component {
 
             <h4>Cost of Session: ${this.state.session_length * tutor.price_per_hr}</h4><br/>
 
-            <Button type="submit" color="green">Book This Session</Button>
+            { booking.available ? <Button type="submit" color="green">Book This Session</Button> : <h4 color="red">- Session Booked -</h4> }
           </Form>
         </Grid>
         <br/>

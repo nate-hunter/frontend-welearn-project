@@ -32,8 +32,8 @@ export const createStudentBooking = booking => dispatch => {
       body: JSON.stringify(booking)
     })
     .then(resp => resp.json())
-    .then(bookingObj => {debugger})
-    // .then(bookingObj => dispatch(editBooking(bookingObj)))
+    // .then(bookingObj => {debugger})
+    .then(bookingObj => dispatch(editBooking(bookingObj)))
   } else {
     return "yooo"
   }
