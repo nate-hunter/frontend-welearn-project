@@ -56,3 +56,5 @@
 - payment option (Stripe)
 - general improvements to styling/UX/UI
 - some data visualization ( tutor stats, booked sessions etc)
+- automatically update user info (eg, grade, age)
+  - add birthday attribute to Users table

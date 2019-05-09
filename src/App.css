@@ -39,3 +39,14 @@
 .profile-icon {
   height: 2vmin;
 }
+
+.user-details {
+  /* padding: 100px !important; */
+  /* align-items: center !important; */
+  color: yellow !important;
+  /* margin:1em auto; */
+  /* float:left; */
+  margin-right:10px;
+  /* float:right; */
+  margin-left: 10% !important;
+}

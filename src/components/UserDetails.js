@@ -15,7 +15,7 @@ class UserDetails extends React.Component {
           </Header>
         </Divider>
 
-        <Table definition collapsing>
+        <Table definition collapsing className='user-details' >
           <Table.Body>
             <Table.Row>
               <Table.Cell width={2}>Username</Table.Cell>

@@ -20,7 +20,6 @@ export const getBookings = () => dispatch => {
 
 export const createStudentBooking = booking => dispatch => {
   const token = localStorage.token;
-  // debugger
   if (token) {
     return fetch(`http://localhost:3000/api/v1/bookings/${booking.id}`, {
       method: "PATCH",
@@ -32,7 +31,6 @@ export const createStudentBooking = booking => dispatch => {
       body: JSON.stringify(booking)
     })
     .then(resp => resp.json())
-    // .then(bookingObj => {debugger})
     .then(bookingObj => dispatch(editBooking(bookingObj)))
   } else {
     return "yooo"
