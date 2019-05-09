@@ -26,6 +26,7 @@ class App extends React.Component {
     e.preventDefault();
     localStorage.removeItem("token")
     this.props.logoutUser()
+    this.props.history.push('/')
   };
 
   render(){
@@ -63,7 +64,8 @@ class App extends React.Component {
           </Menu.Menu>
         </Menu>
 
-        <Route path="/" component={Home} />
+
+        <Route exact path="/" component={Home} />
         <Route path="/map" component={Map} />
         <Route path="/signup" component={Signup} />
         <Route path="/login" component={Login} />
@@ -83,7 +85,7 @@ const mapDispatchToProps = dispatch => ({
   logoutUser: () => dispatch(logoutUser())
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
 
 
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { userLoginFetch } from '../actions/userActions';
 import { Button, Checkbox, Form, Grid, Select } from 'semantic-ui-react';
+import { withRouter } from 'react-router-dom'
 
 class Login extends React.Component {
   state = {
@@ -18,6 +19,7 @@ class Login extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.userLoginFetch(this.state)
+    this.props.history.push('/profile')
   };
 
   render() {
@@ -41,7 +43,7 @@ class Login extends React.Component {
               <input type="password" name="password" placeholder="Password..." value={this.state.password} onChange={this.handleChange} />
             </Form.Field>
 
-            <Button type="submit" color="yellow">Log In</Button>
+            <Button type="submit" color="yellow" >Log In</Button>
           </Form>
         </Grid.Column>
       </Grid>
@@ -53,7 +55,7 @@ const mapDispatchToProps = dispatch => ({
   userLoginFetch: userInfo => dispatch(userLoginFetch(userInfo))
 });
 
-export default connect(null, mapDispatchToProps)(Login);
+export default withRouter(connect(null, mapDispatchToProps)(Login));
 
 
 // <form onSubmit={this.handleSubmit}>

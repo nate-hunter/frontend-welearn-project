@@ -51,7 +51,7 @@ class UserEditForm extends React.Component {
             </Form.Field>
             <Form.Field>
               <label>Age</label>
-              <input name='age' placeholder='age...' value={this.state.age} onChange={this.handleChange} />
+              <input name='age' placeholder={user.age} value={this.state.age} onChange={this.handleChange} />
             </Form.Field>
             <Form.Field>
               <label>Grade</label>

@@ -37,7 +37,7 @@
 - *style* similar to WeWorks
 
 # ROUTES:
-- after login redirect to bookings (or home?)
+//- after login redirect to bookings (or home? or profile?)
 - after signup redirect to profile page
 - after booking, redirect to ???
 

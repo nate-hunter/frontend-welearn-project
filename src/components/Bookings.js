@@ -4,6 +4,7 @@ import { getBookings } from '../actions/bookingActions'
 import BookingCard from './BookingCard'
 import BookingDetails from './BookingDetails'
 import FilterBookings from './FilterBookings';
+import { Button, Card, Image } from 'semantic-ui-react'
 
 class Bookings extends React.Component {
   state = {
@@ -34,12 +35,12 @@ class Bookings extends React.Component {
     });
   };
 
-  filterTutorLastname = () => {
-    // return bookings.filter(booking => booking.tutor.lastname.includes(this.state.searchText))
-    const fullyFilteredList = this.filterSubject().filter(booking => booking.tutor.lastname.toLowerCase().includes(this.state.searchText.toLowerCase()))
-
-    return fullyFilteredList.map(bookingObj => <BookingCard key={bookingObj.id} booking={bookingObj}/> )
-  };
+  // filterTutorLastname = () => {
+  //   // return bookings.filter(booking => booking.tutor.lastname.includes(this.state.searchText))
+  //   const fullyFilteredList = this.filterSubject().filter(booking => booking.tutor.lastname.toLowerCase().includes(this.state.searchText.toLowerCase()))
+  //
+  //   return fullyFilteredList.map(bookingObj => <BookingCard key={bookingObj.id} booking={bookingObj}/> )
+  // };
 
   // filterTutorLastname = () => {
   //   return this.props.bookings.filter(booking => {
@@ -47,6 +48,46 @@ class Bookings extends React.Component {
   //     }
   //   )
   // };
+
+  ///////////////////// CARDS - begin /////////////////////
+  // let sessionsList = student_sessions ? student_sessions.map(session => {
+  //   let sessionItem = {
+  //       header: session.date + " " + session.time,
+  //       description: session.session_goal,
+  //       meta: "Length: " + session.session_length + " " + "hr(s)" + " " + "|| " + "Cost: " + " " + "$" + session.session_cost,
+  //       extra: "Tutor: " + "poop"
+  //     }
+  //     return sessionItem
+  //   }
+  // ) : null;
+
+  // filterTutorLastname = () => {
+  //   const fullyFilteredList = this.filterSubject().filter(booking => booking.tutor.lastname.toLowerCase().includes(this.state.searchText.toLowerCase()))
+  //
+  //   return fullyFilteredList.map(booking => (
+  //     <Card>
+  //       <Card.Content>
+  //         <Image floated='right' size='mini' src='https://react.semantic-ui.com/images/avatar/large/steve.jpg' />
+  //         <Card.Header>Tutor: {booking.tutor.firstname} {booking.tutor.lastname} | {booking.tutor.specialty.toUpperCase()} </Card.Header>
+  //         <Card.Meta>Date: {booking.date} || Time: {booking.time}</Card.Meta>
+  //         <Card.Description>
+  //           Location:  <strong>{booking.location.address}</strong>
+  //         </Card.Description>
+  //       </Card.Content>
+  //       <Card.Content extra>
+  //         <div className='ui two buttons'>
+  //           <Button basic color='green' onClick={() => selectBooking(booking)}>
+  //             View Session Details
+  //           </Button>
+  //         </div>
+  //       </Card.Content>
+  //     </Card>
+  //     )
+  //
+  //   )
+  // };
+
+  ///////////////////// CARDS - end /////////////////////
 
 
 
@@ -62,6 +103,11 @@ class Bookings extends React.Component {
     //   <BookingCard key={bookingObj.id} booking={bookingObj} />
     // );
 
+    const fullyFilteredList = this.filterSubject().filter(booking => booking.tutor.lastname.toLowerCase().includes(this.state.searchText.toLowerCase()))
+    console.log('fully filtered', fullyFilteredList)
+
+    // {this.filterTutorLastname()}
+
     return(
       <div>
         <br/>
@@ -74,7 +120,11 @@ class Bookings extends React.Component {
         <br/>
         {this.props.selectedBooking.id ? <BookingDetails /> : null }
         <h1>Available Sessions</h1>
-        {this.filterTutorLastname()}
+
+
+
+        <BookingCard bookings={fullyFilteredList}/>
+
       </div>
     );
   };
@@ -89,3 +139,66 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = { getBookings }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Bookings);
+
+
+// // BOILERPLATE:
+// <Card.Group>
+//     <Card>
+//       <Card.Content>
+//         <Image floated='right' size='mini' src='https://react.semantic-ui.com/images/avatar/large/steve.jpg' />
+//         <Card.Header>Steve Sanders</Card.Header>
+//         <Card.Meta>Friends of Elliot</Card.Meta>
+//         <Card.Description>
+//           Steve wants to add you to the group <strong>best friends</strong>
+//         </Card.Description>
+//       </Card.Content>
+//       <Card.Content extra>
+//         <div className='ui two buttons'>
+//           <Button basic color='green'>
+//             Approve
+//           </Button>
+//           <Button basic color='red'>
+//             Decline
+//           </Button>
+//         </div>
+//       </Card.Content>
+//     </Card>
+//     <Card>
+//       <Card.Content>
+//         <Image floated='right' size='mini' src='https://react.semantic-ui.com/images/avatar/large/molly.png' />
+//         <Card.Header>Molly Thomas</Card.Header>
+//         <Card.Meta>New User</Card.Meta>
+//         <Card.Description>
+//           Molly wants to add you to the group <strong>musicians</strong>
+//         </Card.Description>
+//       </Card.Content>
+//       <Card.Content extra>
+//         <div className='ui two buttons'>
+//           <Button basic color='green'>
+//             Approve
+//           </Button>
+//           <Button basic color='red'>
+//             Decline
+//           </Button>
+//         </div>
+//       </Card.Content>
+//     </Card>
+//     <Card>
+//       <Card.Content>
+//         <Image floated='right' size='mini' src='https://react.semantic-ui.com/images/avatar/large/jenny.jpg' />
+//         <Card.Header>Jenny Lawrence</Card.Header>
+//         <Card.Meta>New User</Card.Meta>
+//         <Card.Description>Jenny requested permission to view your contact details</Card.Description>
+//       </Card.Content>
+//       <Card.Content extra>
+//         <div className='ui two buttons'>
+//           <Button basic color='green'>
+//             Approve
+//           </Button>
+//           <Button basic color='red'>
+//             Decline
+//           </Button>
+//         </div>
+//       </Card.Content>
+//     </Card>
+//   </Card.Group>
