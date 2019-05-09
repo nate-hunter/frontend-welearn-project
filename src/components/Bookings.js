@@ -4,7 +4,7 @@ import { getBookings } from '../actions/bookingActions'
 import BookingCard from './BookingCard'
 import BookingDetails from './BookingDetails'
 import FilterBookings from './FilterBookings';
-import { Button, Card, Image } from 'semantic-ui-react'
+import { Divider, Header, Icon, Table, Card, Button, Image, Item } from 'semantic-ui-react'
 
 class Bookings extends React.Component {
   state = {
@@ -35,12 +35,12 @@ class Bookings extends React.Component {
     });
   };
 
-  // filterTutorLastname = () => {
-  //   // return bookings.filter(booking => booking.tutor.lastname.includes(this.state.searchText))
-  //   const fullyFilteredList = this.filterSubject().filter(booking => booking.tutor.lastname.toLowerCase().includes(this.state.searchText.toLowerCase()))
-  //
-  //   return fullyFilteredList.map(bookingObj => <BookingCard key={bookingObj.id} booking={bookingObj}/> )
-  // };
+  filterTutorLastname = () => {
+    // return bookings.filter(booking => booking.tutor.lastname.includes(this.state.searchText))
+    const fullyFilteredList = this.filterSubject().filter(booking => booking.tutor.lastname.toLowerCase().includes(this.state.searchText.toLowerCase()))
+
+    return fullyFilteredList.map(bookingObj => <BookingCard key={bookingObj.id} booking={bookingObj}/> )
+  };
 
   // filterTutorLastname = () => {
   //   return this.props.bookings.filter(booking => {
@@ -64,25 +64,25 @@ class Bookings extends React.Component {
   // filterTutorLastname = () => {
   //   const fullyFilteredList = this.filterSubject().filter(booking => booking.tutor.lastname.toLowerCase().includes(this.state.searchText.toLowerCase()))
   //
-  //   return fullyFilteredList.map(booking => (
-  //     <Card>
-  //       <Card.Content>
-  //         <Image floated='right' size='mini' src='https://react.semantic-ui.com/images/avatar/large/steve.jpg' />
-  //         <Card.Header>Tutor: {booking.tutor.firstname} {booking.tutor.lastname} | {booking.tutor.specialty.toUpperCase()} </Card.Header>
-  //         <Card.Meta>Date: {booking.date} || Time: {booking.time}</Card.Meta>
-  //         <Card.Description>
-  //           Location:  <strong>{booking.location.address}</strong>
-  //         </Card.Description>
-  //       </Card.Content>
-  //       <Card.Content extra>
-  //         <div className='ui two buttons'>
-  //           <Button basic color='green' onClick={() => selectBooking(booking)}>
-  //             View Session Details
-  //           </Button>
-  //         </div>
-  //       </Card.Content>
-  //     </Card>
-  //     )
+    // return fullyFilteredList.map(booking => (
+    //   <Card>
+    //     <Card.Content>
+    //       <Image floated='right' size='mini' src='https://react.semantic-ui.com/images/avatar/large/steve.jpg' />
+    //       <Card.Header>Tutor: {booking.tutor.firstname} {booking.tutor.lastname} | {booking.tutor.specialty.toUpperCase()} </Card.Header>
+    //       <Card.Meta>Date: {booking.date} || Time: {booking.time}</Card.Meta>
+    //       <Card.Description>
+    //         Location:  <strong>{booking.location.address}</strong>
+    //       </Card.Description>
+    //     </Card.Content>
+    //     <Card.Content extra>
+    //       <div className='ui two buttons'>
+    //         <Button basic color='green' onClick={() => selectBooking(booking)}>
+    //           View Session Details
+    //         </Button>
+    //       </div>
+    //     </Card.Content>
+    //   </Card>
+    //   )
   //
   //   )
   // };
@@ -107,6 +107,7 @@ class Bookings extends React.Component {
     console.log('fully filtered', fullyFilteredList)
 
     // {this.filterTutorLastname()}
+    // <BookingCard bookings={fullyFilteredList} />
 
     return(
       <div>
@@ -119,11 +120,21 @@ class Bookings extends React.Component {
 
         <br/>
         {this.props.selectedBooking.id ? <BookingDetails /> : null }
-        <h1>Available Sessions</h1>
 
 
 
-        <BookingCard bookings={fullyFilteredList}/>
+
+
+        <Divider horizontal>
+          <Header as='h1'>
+            Available Sessions
+          </Header>
+        </Divider>
+
+
+        {this.filterTutorLastname()}
+
+
 
       </div>
     );

@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { Button, Checkbox, Form, Grid, Select } from 'semantic-ui-react';
+import { Button, Checkbox, Form, Grid, Select, Divider, Header } from 'semantic-ui-react';
 import { createStudentBooking } from '../actions/bookingActions'
+import { withRouter } from 'react-router-dom'
 
 class BookingDetails extends React.Component {
   state = {
@@ -37,6 +38,7 @@ class BookingDetails extends React.Component {
     e.preventDefault();
     console.log('yoooo',this.state)
     this.props.createStudentBooking(this.state)
+    this.props.history.push('/profile')
   }
 
   render(){
@@ -60,13 +62,15 @@ class BookingDetails extends React.Component {
 
     return(
       <div>
-        <hr/>
-        <h1>Session Details</h1>
+        <Divider horizontal>
+          <Header as='h1'>
+            Session Details
+          </Header>
+        </Divider>
         <br/>
-        <h2>{booking.available ? "available" : "not available"}</h2>
         <br/>
         <div>
-          <p>{booking.date} || {booking.time}</p>
+          <h2>{booking.date} || 6:00 pm</h2>
         </div>
         <h3>Location: {location.address}</h3>
         <h3>{tutor.specialty.toUpperCase()}</h3>
@@ -109,7 +113,7 @@ const mapDispatchToProps = dispatch => ({
   createStudentBooking: (booking) => dispatch(createStudentBooking(booking))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(BookingDetails);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BookingDetails));
 
 
 // //

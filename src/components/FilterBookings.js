@@ -21,7 +21,7 @@ const FilterBookings = (props) => {
     <div>
       <h4>Which subject would you like to study?</h4>
       <label>
-        <select value={props.term} onChange={props.handleChange}>
+        <select value={props.term} onChange={props.handleChange} className="filter-subject">
           <option value="All">All</option>
           <option value="Math">Math</option>
           <option value="Science">Science</option>

@@ -14,32 +14,69 @@ class BookingCard extends React.Component {
 
     console.log('booking carddd', this.props)
 
-    const bookingCards = this.props.bookings.map(booking => (
-      <Card centered>
-        <Card.Content>
-          <Image floated='right' size='mini' src='https://react.semantic-ui.com/images/avatar/large/steve.jpg' />
-          <Card.Header>Tutor: {booking.tutor.firstname} {booking.tutor.lastname} | {booking.tutor.specialty.toUpperCase()} </Card.Header>
-          <Card.Meta>Date: {booking.date} || Time: {booking.time}</Card.Meta>
-          <Card.Description>
-            Location:  <strong>{booking.location.address}</strong>
-          </Card.Description>
-        </Card.Content>
-        <Card.Content extra>
-          <div className='ui two buttons'>
-            <Button basic color='green' onClick={() => selectBooking(booking)}>
-              View Session Details
-            </Button>
-          </div>
-        </Card.Content>
-      </Card>
-      )
-    )
+    // const bookingCards = this.props.bookings.map(booking => (
+    //   <div>
+    //     <Card.Content>
+    //       <Image floated='right' size='mini' src='https://react.semantic-ui.com/images/avatar/large/steve.jpg' />
+    //       <Card.Header>Tutor: {booking.tutor.firstname} {booking.tutor.lastname} | {booking.tutor.specialty.toUpperCase()} </Card.Header>
+    //       <Card.Meta>Date: {booking.date} || Time: {booking.time}</Card.Meta>
+    //       <Card.Description>
+    //         Location:  <strong>{booking.location.address}</strong>
+    //       </Card.Description>
+    //     </Card.Content>
+    //     <Card.Content extra>
+    //       <div className='ui two buttons'>
+    //         {booking.available ? <Button basic color='green' onClick={() => selectBooking(booking)}>
+    //           View Session Details
+    //         </Button> : <Button basic color='red' onClick={() => selectBooking(booking)}>
+    //           Session Unavailable
+    //         </Button>
+    //       }
+    //       </div>
+    //     </Card.Content>
+    //   </div>
+    //   )
+    // )
 
+    // <h3>Tutor: {booking.tutor.firstname} {booking.tutor.lastname} | {booking.tutor.specialty.toUpperCase()} </h3>
+    // <h3>Location: {booking.location.address}</h3>
+    // <h3>Date: {booking.date} || Time: {booking.time}</h3>
+    //
+    // <button onClick={() => selectBooking(booking)}>View Session Details</button>
+    //
+    // <br/>
+    // <p>{selected ? "selected" : "not selected"}</p>
+    // <br/>
+
+    const cardList = {
+      header: "Tutor: " + booking.tutor.firstname + " " + booking.tutor.lastname + " " + "|" + " "+ booking.tutor.specialty.toUpperCase(),
+      description: "Location:  " + booking.location.address,
+      meta: "Date: " + booking.date + " " + "||" + " " + "Time: " + "6:00p",
+      extra: <div className='ui two buttons'>
+              {booking.available ? <Button basic color='green' onClick={() => selectBooking(booking)}>
+                View Session Details
+              </Button> : <Button basic color='red' onClick={() => selectBooking(booking)}>
+                Session Unavailable
+              </Button>
+            }
+            </div>
+    }
+
+    // <Card.Group centered itemsPerRow='2' items={[{
+    //   header: props.session.date + " " + props.session.time,
+    //   description: "Student Goals: " + props.session.session_goal,
+    //   meta: "Length: " + props.session.session_length + " " + "hr(s)" + " " + "|| " + "Cost: " + " " + "$" + props.session.session_cost,
+    //   extra: "Tutor: " + "props.tutor"
+    // }]} />
+
+    // <p>|----------------------------------------------------------------------------------------------------|</p>
+    // <Card.Group centered items={cardList} />
+    //
+    // <Button>hi</Button>
     return(
       <React.Fragment>
-        <p>|----------------------------------------------------------------------------------------------------|</p>
 
-        {bookingCards}
+      <Card.Group centered items={[cardList]} />
 
       </React.Fragment>
     );
@@ -55,6 +92,149 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookingCard);
+
+// <div class="ui centered cards">
+//   <div class="ui card">
+//     <div class="content">
+//       <div class="header">Project Report - April</div>
+//       <div class="meta">ROI: 30%</div>
+//       <div class="description">
+//         Leverage agile frameworks to provide a robust synopsis for high level
+//         overviews.
+//       </div>
+//     </div>
+//   </div>
+//   <div class="ui card">
+//     <div class="content">
+//       <div class="header">Project Report - May</div>
+//       <div class="meta">ROI: 34%</div>
+//       <div class="description">
+//         Bring to the table win-win survival strategies to ensure proactive
+//         domination.
+//       </div>
+//     </div>
+//   </div>
+// </div>
+// /////////
+// <div class="ui cards">
+//   <div class="ui card">
+//     <div class="content">
+//       <div class="header">Steve Sanders</div>
+//       <div class="meta">Friends of Elliot</div>
+//       <div class="description">
+//         Steve wants to add you to the group <strong>best friends</strong>
+//       </div>
+//     </div>
+//     <div class="extra content">
+//       <div class="ui two buttons">
+//         <button class="ui green basic button">Approve</button
+//         ><button class="ui red basic button">Decline</button>
+//       </div>
+//     </div>
+//   </div>
+//
+//
+//   <div class="ui card">
+//     <div class="content">
+//       <img
+//         src="https://react.semantic-ui.com/images/avatar/large/molly.png"
+//         class="ui mini right floated image"
+//       />
+//       <div class="header">Molly Thomas</div>
+//       <div class="meta">New User</div>
+//       <div class="description">
+//         Molly wants to add you to the group <strong>musicians</strong>
+//       </div>
+//     </div>
+//     <div class="extra content">
+//       <div class="ui two buttons">
+//         <button class="ui green basic button">Approve</button
+//         ><button class="ui red basic button">Decline</button>
+//       </div>
+//     </div>
+//   </div>
+//   <div class="ui card">
+//     <div class="content">
+//       <img
+//         src="https://react.semantic-ui.com/images/avatar/large/jenny.jpg"
+//         class="ui mini right floated image"
+//       />
+//       <div class="header">Jenny Lawrence</div>
+//       <div class="meta">New User</div>
+//       <div class="description">
+//         Jenny requested permission to view your contact details
+//       </div>
+//     </div>
+//     <div class="extra content">
+//       <div class="ui two buttons">
+//         <button class="ui green basic button">Approve</button
+//         ><button class="ui red basic button">Decline</button>
+//       </div>
+//     </div>
+//   </div>
+// </div>
+
+////
+
+// <div class="ui cards">
+//   <div class="ui card">
+//     <div class="content">
+//       <img
+//         src="https://react.semantic-ui.com/images/avatar/large/steve.jpg"
+//         class="ui mini right floated image"
+//       />
+//       <div class="header">Steve Sanders</div>
+//       <div class="meta">Friends of Elliot</div>
+//       <div class="description">
+//         Steve wants to add you to the group <strong>best friends</strong>
+//       </div>
+//     </div>
+//     <div class="extra content">
+//       <div class="ui two buttons">
+//         <button class="ui green basic button">Approve</button
+//         ><button class="ui red basic button">Decline</button>
+//       </div>
+//     </div>
+//   </div>
+//   <div class="ui card">
+//     <div class="content">
+//       <img
+//         src="https://react.semantic-ui.com/images/avatar/large/molly.png"
+//         class="ui mini right floated image"
+//       />
+//       <div class="header">Molly Thomas</div>
+//       <div class="meta">New User</div>
+//       <div class="description">
+//         Molly wants to add you to the group <strong>musicians</strong>
+//       </div>
+//     </div>
+//     <div class="extra content">
+//       <div class="ui two buttons">
+//         <button class="ui green basic button">Approve</button
+//         ><button class="ui red basic button">Decline</button>
+//       </div>
+//     </div>
+//   </div>
+//   <div class="ui card">
+//     <div class="content">
+//       <img
+//         src="https://react.semantic-ui.com/images/avatar/large/jenny.jpg"
+//         class="ui mini right floated image"
+//       />
+//       <div class="header">Jenny Lawrence</div>
+//       <div class="meta">New User</div>
+//       <div class="description">
+//         Jenny requested permission to view your contact details
+//       </div>
+//     </div>
+//     <div class="extra content">
+//       <div class="ui two buttons">
+//         <button class="ui green basic button">Approve</button
+//         ><button class="ui red basic button">Decline</button>
+//       </div>
+//     </div>
+//   </div>
+// </div>
 
 // PREVIOUS CODE:
 // <h3>Tutor: {booking.tutor.firstname} {booking.tutor.lastname} | {booking.tutor.specialty.toUpperCase()} </h3>

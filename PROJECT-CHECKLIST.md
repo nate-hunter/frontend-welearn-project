@@ -14,10 +14,11 @@
 - *style* buttons and text boxes
 
 # PROFILE:
-- make info in profile editable
-- allow to view bookings (past and present)
-- *style* info table
-- *style* booking cards/grid
+// - make info in profile editable
+// - allow to view bookings
+- allow to/filter past and future)
+// - *style* info table
+// - *style* booking cards/grid
 
 # BOOKINGS:
 - *style* list of bookings
@@ -32,9 +33,10 @@
 - if booked, button unclickable
 
 # HOME:
-- add copy
+// - add copy
 - add background photo
 - *style* similar to WeWorks
+- add button to signup and login pages
 
 # ROUTES:
 //- after login redirect to bookings (or home? or profile?)
@@ -45,7 +47,7 @@
 - use CARTO.VL (prob no time)
 - add to bookings page if can
 - be able to filter locations by neighborhood
-- add title to map (or remove)
+// - add title to map (or remove)
 
 # FUTURE
 - implement tutor functionality

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Image, Item } from 'semantic-ui-react'
-import { Divider, Header, Icon, Table, Card } from 'semantic-ui-react'
+import { Divider, Header, Icon, Table, Card, Button } from 'semantic-ui-react'
 import UserBookingCard from './UserBookingCard'
 
 class UserBookings extends React.Component {
@@ -29,6 +29,7 @@ class UserBookings extends React.Component {
     return(
       <React.Fragment>
         <Card.Group centered items={sessionsList} />
+
       </React.Fragment>
     )
   }
@@ -156,3 +157,56 @@ export default connect(mapStateToProps)(UserBookings);
 //     );
 //   };
 // };
+
+////////
+
+// <div class="ui centered cards">
+//   <div class="ui card">
+//     <div class="content">
+//       <div class="header">Project Report - April</div>
+//       <div class="meta">ROI: 30%</div>
+//       <div class="description">
+//         Leverage agile frameworks to provide a robust synopsis for high level
+//         overviews.
+//       </div>
+//     </div>
+//   </div>
+//   <div class="ui card">
+//     <div class="content">
+//       <div class="header">Project Report - May</div>
+//       <div class="meta">ROI: 34%</div>
+//       <div class="description">
+//         Bring to the table win-win survival strategies to ensure proactive
+//         domination.
+//       </div>
+//     </div>
+//   </div>
+// </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
