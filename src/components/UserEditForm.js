@@ -26,7 +26,7 @@ class UserEditForm extends React.Component {
     e.preventDefault();
     this.props.userPatchProfile(this.state)
   };
-
+  // 
   // componentDidUpdate (prevState, prevProps) {
   //   if (prevProps.id !== this.props.currentUser.id) {
   //     this.setState({

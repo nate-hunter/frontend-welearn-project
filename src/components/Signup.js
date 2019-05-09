@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { userPostFetch } from '../actions/userActions';
 import { Button, Checkbox, Form, Grid, Select } from 'semantic-ui-react';
+import { withRouter } from 'react-router-dom'
 
 class Signup extends React.Component {
 
@@ -28,6 +29,7 @@ class Signup extends React.Component {
   handleSubmit = e => {
     e.preventDefault()
     this.props.userPostFetch(this.state)
+    this.props.history.push('/profile')
   }
 
   render() {
@@ -71,7 +73,7 @@ const mapDispatchToProps = dispatch => ({
   userPostFetch: userInfo => dispatch(userPostFetch(userInfo))
 })
 
-export default connect(null, mapDispatchToProps)(Signup);
+export default withRouter(connect(null, mapDispatchToProps)(Signup));
 
 
 // <Form.Field>

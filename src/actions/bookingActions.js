@@ -33,7 +33,7 @@ export const createStudentBooking = booking => dispatch => {
     .then(resp => resp.json())
     .then(bookingObj => dispatch(editBooking(bookingObj)))
   } else {
-    return "yooo"
+    return alert('no bueno')
   }
 };
 

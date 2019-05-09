@@ -36,9 +36,8 @@ class BookingDetails extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log('yoooo',this.state)
     this.props.createStudentBooking(this.state)
-    this.props.history.push('/profile')
+    // this.props.history.push('/profile')
   }
 
   render(){
@@ -66,14 +65,14 @@ class BookingDetails extends React.Component {
           <Header as='h1'>
             Session Details
           </Header>
-        </Divider>
+        </Divider> 
         <br/>
         <br/>
         <div>
           <h2>{booking.date} || 6:00 pm</h2>
         </div>
-        <h3>Location: {location.address}</h3>
-        <h3>{tutor.specialty.toUpperCase()}</h3>
+        <h3  color="blue">Location: {location.address}</h3>
+        <h3 color="green">- {tutor.specialty.toUpperCase()} -</h3>
 
         <br/>
         <div>
@@ -89,14 +88,14 @@ class BookingDetails extends React.Component {
             <Form.Select name="session_length" value={this.state.session_length} label="Session Length" options={lengthOptions} placeholder="-" onChange={this.handleSelect}/>
             <Form.Select name="session_goal" value={this.state.session_goal} label="Session Goal" options={goalOptions} placeholder="-" onChange={this.handleSelect}/>
 
-            <h4>Cost of Session: ${this.state.session_length * tutor.price_per_hr}</h4><br/>
+            { this.state.session_length > 0 ? <h4 color="yellow">Cost of Session: ${this.state.session_length * tutor.price_per_hr}</h4> : <h4>Cost of Session: ${this.state.session_length * tutor.price_per_hr}</h4> }
+
 
             { booking.available ? <Button type="submit" color="green">Book This Session</Button> : <h4 color="red">- Session Booked -</h4> }
           </Form>
         </Grid>
         <br/>
         <br/>
-        <p>|====================================================================================================|</p>
       </div>
     );
   };

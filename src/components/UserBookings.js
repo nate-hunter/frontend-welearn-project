@@ -8,16 +8,20 @@ class UserBookings extends React.Component {
   render() {
     let user = this.props.currentUser
     let { student_sessions } = this.props.currentUser
-    console.log('student sessionssss', student_sessions)
+    let ss = student_sessions || {}
+    console.log('student sessionssss', this.props)
 
     // let sessionsList = student_sessions ? student_sessions.map(session => <UserBookingCard key={session.id} session={session} />) : null
 
+    // let tutorFind = this.props.currentUser.tutors.find(tutor => tutor.id === session.tutor_id)
+    // console.log('tutor fiind',tutorFind)
+
     let sessionsList = student_sessions ? student_sessions.map(session => {
       let sessionItem = {
-          header: session.date + " " + session.time,
+          header: session.date + " " + "||" + " " + "6:00 pm",
           description: session.session_goal,
           meta: "Length: " + session.session_length + " " + "hr(s)" + " " + "|| " + "Cost: " + " " + "$" + session.session_cost,
-          extra: "Tutor: " + "poop"
+          extra: "Tutor: " + session.tutor_id
         }
         return sessionItem
       }
@@ -28,7 +32,14 @@ class UserBookings extends React.Component {
 
     return(
       <React.Fragment>
+        <Divider horizontal>
+          <Header as='h2'>
+            User Sessions
+          </Header>
+        </Divider>
+
         <Card.Group centered items={sessionsList} />
+        { ss.length > 0 ? "" : <h3 color="red">- No Sessions Booked -</h3>}
 
       </React.Fragment>
     )

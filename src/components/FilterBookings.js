@@ -32,24 +32,9 @@ const FilterBookings = (props) => {
       </label>
       <br/><br/>
 
-
-      <strong>Sort by:  |</strong>
-      <label>
-        <input type="radio" value="date" checked={null} onChange={null} />
-        Date
-      </label>
-      <label>
-        <input type="radio" value="price_per_hr" checked={null} onChange={null} />
-        Price/hr
-      </label>
-      <label>
-        <input type="radio" value="hires" checked={null} onChange={null} />
-        Hires
-      </label>
-      <br/><br/>
-
       <div>
-        <input name="searchText" value={props.searchText} onChange={props.handleSearch} placeholder="Search by Tutor" />
+        <h4>Search by tutor last name: </h4>
+        <input name="searchText" value={props.searchText} onChange={props.handleSearch} placeholder="Search by Tutor..." />
       </div>
 
     </div>
@@ -72,3 +57,20 @@ export default FilterBookings;
 //     </Dropdown.Menu>
 //   </Dropdown>
 // </Button.Group>
+
+      //
+      //
+      // <strong>Sort by:  |</strong>
+      // <label>
+      //   <input type="radio" value="date" checked={null} onChange={null} />
+      //   Date
+      // </label>
+      // <label>
+      //   <input type="radio" value="price_per_hr" checked={null} onChange={null} />
+      //   Price/hr
+      // </label>
+      // <label>
+      //   <input type="radio" value="hires" checked={null} onChange={null} />
+      //   Hires
+      // </label>
+      // <br/><br/>

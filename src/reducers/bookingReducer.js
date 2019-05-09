@@ -22,8 +22,6 @@ const bookingReducer = (state=initialState, action) => {
           return booking
         }
       })
-
-
       return {
         ...state,
          selectedBooking: action.payload,

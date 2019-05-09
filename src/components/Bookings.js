@@ -4,7 +4,7 @@ import { getBookings } from '../actions/bookingActions'
 import BookingCard from './BookingCard'
 import BookingDetails from './BookingDetails'
 import FilterBookings from './FilterBookings';
-import { Divider, Header, Icon, Table, Card, Button, Image, Item } from 'semantic-ui-react'
+import { Divider, Header, Icon, Table, Card, Button, Image, Item, Grid, Segment } from 'semantic-ui-react'
 
 class Bookings extends React.Component {
   state = {
@@ -132,9 +132,11 @@ class Bookings extends React.Component {
         </Divider>
 
 
-        {this.filterTutorLastname()}
 
 
+        <Grid.Column key="2">
+          {this.filterTutorLastname()}
+        </Grid.Column>
 
       </div>
     );

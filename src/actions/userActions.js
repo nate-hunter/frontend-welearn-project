@@ -86,7 +86,7 @@ export const userPatchProfile = user => dispatch => {
     .then(userObj => dispatch(editUser(userObj)))
     // .then(userObj => {debugger})
   } else {
-    return "yooo"
+    return alert('ERROR: User not updated')
   }
 };
 
