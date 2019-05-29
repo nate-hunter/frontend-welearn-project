@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Dropdown } from 'semantic-ui-react';
-
+import DateTimePicker from 'react-datetime-picker';
+import Calendar from 'react-calendar';
 
 // filter by:
 // - tutor (subject/specialty)
@@ -15,30 +16,50 @@ import { Button, Dropdown } from 'semantic-ui-react';
 // bookingReducer(?), which will update the app's state.
 // * Filter method to be used in 'Bookings.js'
 
-const FilterBookings = (props) => {
-  // console.log('filterbookings', props)
-  return (
-    <div>
-      <h4>Which subject would you like to study?</h4>
-      <label>
-        <select value={props.term} onChange={props.handleChange} className="filter-subject">
-          <option value="All">All</option>
-          <option value="Math">Math</option>
-          <option value="Science">Science</option>
-          <option value="Programming">Programming</option>
-          <option value="Reading">Reading</option>
-          <option value="Writing">Writing</option>
-        </select>
-      </label>
-      <br/><br/>
+class FilterBookings extends React.Component {
 
+  state = {
+    date: new Date()
+  }
+
+  onChange = (e) => {
+    console.log(e)
+  }
+
+  render() {
+    console.log('filterbookings', this.props)
+    return (
       <div>
-        <h4>Search by tutor last name: </h4>
-        <input name="searchText" value={props.searchText} onChange={props.handleSearch} placeholder="Search by Tutor..." />
-      </div>
+        <h4>- Which subject would you like to study? -</h4>
+        <label>
+          <select value={this.props.term} onChange={this.props.handleChange} className="filter-subject">
+            <option value="Nate">All</option>
+            <option value="Math">Math</option>
+            <option value="Science">Science</option>
+            <option value="Programming">Programming</option>
+            <option value="Reading">Reading</option>
+            <option value="Writing">Writing</option>
+          </select>
+        </label>
+        <br/><br/>
 
-    </div>
-  )
+        <div>
+          <h4>- Search by tutor last name -</h4>
+          <input name="searchText" value={this.props.searchText} onChange={this.props.handleSearch} placeholder="Search by Tutor..." />
+        </div>
+        <br/><br/>
+
+        <div className="calendar">
+          <h4>- Search by date -</h4>
+          <Calendar
+            onChange={this.onChange}
+            value={this.state.date}
+          />
+        </div>
+
+      </div>
+    )
+  }
 }
 
 export default FilterBookings;

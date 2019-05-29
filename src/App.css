@@ -61,3 +61,10 @@
   display: inline-block;
   font-size: 15px;
 }
+
+.calendar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
