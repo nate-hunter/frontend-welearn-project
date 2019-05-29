@@ -24,9 +24,13 @@ class UserEditForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.userPatchProfile(this.state)
+    if (this.state.firstname === "" || this.state.lastname === "" || this.state.age === "" || this.state.grade === "") {
+      alert('age not updated')
+    } else {
+      this.props.userPatchProfile(this.state)
+    }
   };
-  // 
+
   // componentDidUpdate (prevState, prevProps) {
   //   if (prevProps.id !== this.props.currentUser.id) {
   //     this.setState({

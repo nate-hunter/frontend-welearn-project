@@ -4,14 +4,16 @@
 # PAGES:
 
 ## FILTER:
-- filter out unavailable sessions
+- filter out unavailable sessions(?)
 // - tutor (subject/specialty)
 - location (neighborhood)
   - need to add neighborhood
 - date (recent)
+  - add schedule/calendar to filter
 // - tutor (last name)
 - tutor (hires)
-- *style* buttons and text boxes
+- *style* buttons
+- *style* text box
 
 # PROFILE:
 // - make info in profile editable
@@ -19,6 +21,7 @@
 - allow to/filter past and future)
 // - *style* info table
 // - *style* booking cards/grid
+- add tutor details
 
 # BOOKINGS:
 - *style* list of bookings
@@ -30,7 +33,7 @@
 - *style* booking details
   - table? what can semantic do?
 - convert date/time
-- if booked, button unclickable
+//- if booked, button unclickable
 
 # HOME:
 // - add copy

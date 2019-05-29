@@ -1,68 +1,112 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# WeLearn
 
-## Available Scripts
+## Models:
+	- User (student)
+	- Tutor
+	- Booking/Appointment/Session
+	- Location
 
-In the project directory, you can run:
+## MVP:
+	- a user can signup/login/logout
+	- a user can search/select a tutor by subject and/or location
+	- a user can book a booking **CREATE**
+	- a user can view a booking **READE**
+	- a user can edit a booking **UPDATE**
+	- a user can delete a booking **DELETE**
 
-### `npm start`
+## Stretch Goals:
+	- a user can see a map with locations (CARTO)
+	- a user can filter the map by subject and/or neighborhood
+	- a user can view and utilize a calendar to book a booking (?)
+	- a user can complete a payment when booking the appointment. (Stripe)
+	- a user can login as a tutor
+	- a user can search for meetups, workshops, education events, etc.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Student (User) [Has-many-tutors-and-locations-through-bookings]
+	- name
+	- age [integer]
+	- grade [integer]
+	- goal
+	- subject
+	- learning_disability [boolean]
+	- learning_disability_type
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### Tutor [Has-many-users-and-locations-through-bookings] *SEEDED*
+	- subjects
+	- experience [integer]
+	- education
+	- age [integer]
+	- price-per-hour [integer]
+	- specialty
+	(- name??)
 
-### `npm test`
+### Location (WeWork) [Has-many-users-and-tutors-through-bookings] *SEEDED*
+	- address
+	- burough
+	- neighborhood
+	- lat
+	- lon
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Booking [JOIN]
+	- user_id
+	- tutor_id
+	- location_id
+	- date
+	- time
 
-### `npm run build`
+#### NOTES:
+- A negative of using CARTO is when I deploy this project on Heroku the map may not be visible b/c I need to be logged in. CARTO VL may avoid this though.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Whats your app idea?
+	- welearn, an app for a student (elementary to highschool) to find and book tutors at weworks in NYC.
+What’s your MVP? (What can we expect by next Wednesday?)
+	- a user can signup/login/logout
+	- a user (student) can search for and book a session with a tutor
+	- a user can view and edit its booking.
+	- a user can view a map of wework locations
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---------------------------------------------------------------------------------
+* Objective & Scope
+* Purpose
+	- This project will help connect students (elementaray and highschool) and tutors in NYC
+* Target Audience
+* Technology Requirements / API
+* Bdget
+* Deployment
 
-### `npm run eject`
+---------------------------------------------------------------------------------
+Create A Timeline:
+* Carefully establish a timeline based on the above
+* Document timeline/tasks
+* For cliens, always tell longer than you think
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Wireframing & Mockups
+* Know what the final result will look like
+* Create wireframes or mockups using PS, Sketch, etc
+* What componenents will go where?
+* Send for approval
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Coding
+* Use everything above as a guide
+* Setup dev environment
+* Research other projects that are similar
+* Set up a Git repo with branches
+* Everyone has their own workflow
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Communicate
+* Keep in communication with the client/manager/team
+* Make sure your on the same page
+* Project mgmt software may be good idea
+* Get feedback
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Testing
+* Be thorough with your testing
+* Test on multiple platforms/OS/browsers
+* After deployment, test more...
+---------------------------------------------------------------------------------
+## Style:
+### Fonts:
+	- Apercu Pro, sans-serif; (p, h1, )
+	- Apercu Mono,monospace; (#s/dates)
+	- font-families: "Apercu",Avenir,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,"Calibri","Roboto",Arial,sans-serif

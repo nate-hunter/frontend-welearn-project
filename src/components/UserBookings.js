@@ -17,8 +17,9 @@ class UserBookings extends React.Component {
     // console.log('tutor fiind',tutorFind)
 
     let sessionsList = student_sessions ? student_sessions.map(session => {
+      let date = new Date(session.date)
       let sessionItem = {
-          header: session.date + " " + "||" + " " + "6:00 pm",
+          header: date.toDateString() + " " + "----" + " " + session.date + " " + "||" + " " + "6:00 pm",
           description: session.session_goal,
           meta: "Length: " + session.session_length + " " + "hr(s)" + " " + "|| " + "Cost: " + " " + "$" + session.session_cost,
           extra: "Tutor: " + session.tutor_id
@@ -39,7 +40,7 @@ class UserBookings extends React.Component {
         </Divider>
 
         <Card.Group centered items={sessionsList} />
-        { ss.length > 0 ? "" : <h3 color="red">- No Sessions Booked -</h3>}
+        { ss.length > 0 ? "" : <h3 color="red">- No Sessions Booked -</h3> }
 
       </React.Fragment>
     )
